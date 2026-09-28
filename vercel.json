@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/", "destination": "/rimcheck/index.html" },
+    { "source": "/:path((?!rimcheck/).*)", "destination": "/rimcheck/:path" }
+  ]
+}

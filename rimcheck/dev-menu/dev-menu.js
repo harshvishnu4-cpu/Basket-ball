@@ -100,8 +100,13 @@
     RC.busy = false;
     if (RC.narration && RC.narration.stop) RC.narration.stop();
     // RC.debug.jump fills in the state earlier screens would have set (same as ?screen=N).
-    if (RC.debug && RC.debug.jump) RC.debug.jump(id); else RC.router.go(id);
-    setTimeout(refresh, 700);
+    // The router ignores navigation mid-transition, so retry a few times until the jump lands.
+    var tries = 0;
+    (function attempt() {
+      if (current() === id || tries++ > 6) { refresh(); return; }
+      if (RC.debug && RC.debug.jump) RC.debug.jump(id); else RC.router.go(id);
+      setTimeout(attempt, 350);
+    })();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
