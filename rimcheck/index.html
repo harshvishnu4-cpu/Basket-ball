@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>RimCheck</title>
+<link rel="icon" href="assets/images/ui/ui_skai_logo_mark.png">
+<link rel="stylesheet" href="css/reset.css">
+<!-- Local fonts (Fredoka One + Poppins, bundled in assets/fonts/) -->
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/screens.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/refinements.css">
+<link rel="stylesheet" href="dev-menu/dev-menu.css"><!-- DEV MENU: testing only, delete with dev-menu/ -->
+</head>
+<body>
+<div id="viewport">
+  <div id="shell" class="game-shell">
+    <div id="bg-layer"></div>
+    <canvas id="scene-canvas" width="1920" height="1080" aria-hidden="true"></canvas>
+    <div id="coach" hidden aria-hidden="true">
+      <img data-pose="idle" src="assets/images/characters/coach_riya_idle.png" alt="">
+      <img data-pose="hello" src="assets/images/characters/coach_riya_hello.png" alt="">
+      <img data-pose="curious" src="assets/images/characters/coach_riya_curious.png" alt="">
+      <img data-pose="thinking" src="assets/images/characters/coach_riya_thinking.png" alt="">
+      <img data-pose="celebrate" src="assets/images/characters/coach_riya_celebrate.png" alt="">
+      <img data-pose="pointing" src="assets/images/characters/coach_riya_point.png" alt="">
+      <div id="coach-name">Riya</div>
+    </div>
+    <div id="screen-root"></div>
+    <div id="speech" role="status"></div>
+    <div id="ui-layer">
+      <!-- SKAI mission shell (from Figma "SKAI final" / Main) -->
+      <div id="topbar" hidden>
+        <div class="bar-left">
+          <div class="logo-tag" aria-hidden="true">
+            <img class="tag" src="assets/images/ui/skai/logo_tag.svg" alt="">
+            <img class="mark" src="assets/images/ui/skai/logo_mark.svg" alt="">
+          </div>
+          <button id="btn-back" class="gear-btn back" aria-label="Back"><img src="assets/images/ui/skai/gear_back.svg" alt=""></button>
+        </div>
+        <div id="section-label"></div>
+        <div class="bar-right">
+          <button id="btn-replay" class="gear-btn small replay" aria-label="Replay narration" hidden>
+            <img class="ring" src="assets/images/ui/skai/gear_close.svg" alt=""><img class="ico" src="assets/images/ui/ui_icon_replay.png" alt="">
+          </button>
+          <button id="btn-mute" class="gear-btn small" aria-label="Mute sound"><img src="assets/images/ui/skai/gear_sound.svg" alt=""></button>
+          <button id="btn-info" class="gear-btn small" aria-label="Mission info"><img src="assets/images/ui/skai/gear_info.svg" alt=""></button>
+          <div id="timer-pill" class="timer-sign" aria-label="Mission time"><img src="assets/images/ui/skai/timer_sign.svg" alt=""><span id="timer-text">35:00</span></div>
+        </div>
+      </div>
+      <div id="progress" hidden aria-hidden="true"></div>
+      <button id="hint-btn" aria-label="Hint"><img src="assets/images/ui/skai/gear_hint.svg" alt=""></button>
+      <div id="cta-wrap" hidden>
+        <button id="cta" class="btn btn-primary"><span class="cta-label">Next</span>
+          <i class="bolt tl"></i><i class="bolt tr"></i><i class="bolt bl"></i><i class="bolt br"></i>
+        </button>
+      </div>
+      <div id="info-overlay" hidden>
+        <div class="info-panel" role="dialog" aria-modal="true" aria-labelledby="info-title">
+          <img class="plate" src="assets/images/ui/skai/panel_info.svg" alt="">
+          <div class="info-body">
+            <h2 id="info-title"></h2>
+            <p id="info-text"></p>
+            <button id="info-replay" class="btn btn-primary small"><span class="cta-label">Hear it again</span><i class="bolt tl"></i><i class="bolt tr"></i><i class="bolt bl"></i><i class="bolt br"></i></button>
+          </div>
+          <button id="info-close" class="gear-btn close" aria-label="Close">
+            <img class="ring" src="assets/images/ui/skai/gear_close.svg" alt=""><img class="ico" src="assets/images/ui/skai/icon_close_x.svg" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="transition-veil"></div>
+    <div id="loading">
+      <img src="assets/images/ui/ui_skai_logo_mark.png" alt="">
+      <div class="bar"><i></i></div>
+    </div>
+  </div>
+</div>
+
+<script src="data/narration.js"></script>
+<script src="data/voice_manifest.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/state.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/accessibility.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/narration.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/input.js"></script>
+<script src="js/hint.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/router.js"></script>
+<script src="js/court.js"></script>
+<script src="js/screens/title.js"></script>
+<script src="js/screens/intro.js"></script>
+<script src="js/screens/dispute.js"></script>
+<script src="js/screens/sensorPlacement.js"></script>
+<script src="js/app.js"></script>
+<script src="dev-menu/dev-menu.js"></script><!-- DEV MENU: testing only, delete with dev-menu/ -->
+</body>
+</html>
+

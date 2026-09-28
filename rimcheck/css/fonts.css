@@ -1,0 +1,23 @@
+/* Font pairing from Figma "SKAI final" node 25-4: Fredoka One (display) + Poppins (UI).
+   Files are bundled locally in assets/fonts/ (latin WOFF2 subsets, SIL Open Font License) so the game stays offline.
+   Fredoka One ships a single weight; declaring the 400–900 range stops browsers from faux-bolding it. */
+@font-face {
+  font-family: "GameDisplay";
+  src: url("../assets/fonts/display.woff2") format("woff2");
+  font-weight: 400 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GameUI";
+  src: url("../assets/fonts/ui_regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GameUI";
+  src: url("../assets/fonts/ui_semibold.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GameUI";
+  src: url("../assets/fonts/ui_bold.woff2") format("woff2");
+  font-weight: 700 900; font-style: normal; font-display: swap;
+}

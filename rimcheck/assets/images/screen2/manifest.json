@@ -1,0 +1,17 @@
+{
+  "screen": 2,
+  "reference_background": "../backgrounds/bg_second_screen_reference.png",
+  "interactive_assets": {
+    "yes_button": "button_yes.png",
+    "no_button": "button_no.png"
+  },
+  "reusable_assets": {
+    "thinking_coach": "../characters/coach_riya_thinking-reference-v2.png",
+    "basketball": "../props/ball_basketball.png"
+  },
+  "interaction": "The button images are positioned over the matching locations in the reference composition and animate independently.",
+  "generation": {
+    "tool": "built-in image generation",
+    "prompt_summary": "Transparent full-body adult female coach matching the supplied reference: thoughtful pose, charcoal track suit with white stripes, whistle, warm polished 3D educational illustration."
+  }
+}

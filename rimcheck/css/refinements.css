@@ -1,0 +1,76 @@
+/* Per-screen layout refinements on top of the SKAI shell (Figma "SKAI final" / Main, node 24-2153).
+   The shell itself (gears, logo tag, timer sign, striped progress, bolted CTA, hint gear) lives in layout.css and
+   components.css and is NOT restyled here. The CTA sits bottom-centre (about x 780–1140, y 920–1020 in shell space), so every
+   bottom-anchored tray keeps clear of that box. */
+
+/* ---- Sensor targets: dashed rings on physical attachment points; the support arm is drawn in the canvas scene ---- */
+.zone-target { width: 108px; height: 108px; border: 3px dashed #398f89; background: #effcf52b; }
+.zone-target::before { width: 10px; height: 10px; box-shadow: 0 0 0 5px #398f8926; }
+.zone-target.mini { width: 88px; height: 88px; border-width: 3px; }
+.zone-target.occupied { border-color: #398f8966; background: transparent; }
+.zone-target.over, .zone-target:hover { transform: translate(-50%,-50%) scale(1.04); }
+.mount-label { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); white-space: nowrap; padding: 6px 14px; border-radius: 12px;
+  color: var(--skai-navy); background: #fffaf0ed; box-shadow: 0 2px 6px #24496712; font: 700 19px var(--font-ui); pointer-events: none; }
+/* far-support ring sits under the timer sign and beside the progress bar, so its label hangs to the left */
+.zone-target[data-key='farPole'] .mount-label { left: auto; right: calc(100% + 6px); top: 50%; bottom: auto; transform: translateY(-50%); }
+.sensor-item.mounted { z-index: 2; }
+.sensor-item.mounted::before, .sensor-item.mounted::after { display: none; }
+.sensor-item.mounted:hover, .sensor-item.mounted.selected { transform: none; animation: none; }
+.sensor-item.mounted img { filter: drop-shadow(0 4px 4px #183a5545); }
+.sensor-item.mounted.selected::after { display: none; }
+
+/* ---- 3 Dispute: choices sit bottom-left of centre, under the shooter and left of the crowd ---- */
+.choice-row { left: 430px; right: auto; bottom: 30px; justify-content: flex-start; gap: 30px; }
+.choice-row .btn-choice { min-width: 300px; min-height: 90px; font-size: 26px; }
+
+/* ---- 5 First rule ---- */
+.rule-panel { left: 490px; top: 640px; width: 1320px; }
+.rule-tray { left: 1240px; bottom: 40px; }
+
+/* ---- 6 First test ---- */
+.test-console, .challenge-console { left: 48px; top: 136px; width: 450px; padding: 22px; }
+.machine-call { left: 1390px; top: 450px; }
+.console-row { grid-template-columns: 36px 1fr auto; gap: 10px; padding: 10px; border-radius: 14px; }
+.challenge-console .console-row { padding: 10px; }
+.console-row .num { width: 36px; height: 36px; font-size: 20px; }
+.console-row .name { font-size: 23px; }
+.console-row .name small { font-size: 17px; }
+.console-row .call-badge.small { min-width: 102px; padding: 0 10px; height: 42px; font-size: 17px; }
+.machine-call { left: 1390px; top: 560px; width: 360px; }
+.machine-call .label { font-size: 21px; letter-spacing: 1px; }
+.machine-call .call-badge.big { height: 70px; min-width: 240px; font-size: 30px; }
+.why-wrap { left: 490px; right: 48px; bottom: 170px; }
+.why-wrap .evidence { gap: 20px; }
+.why-wrap .btn-choice { min-width: 380px; max-width: 560px; min-height: 92px; font-size: 25px; }
+
+/* ---- 7 Sequence ---- */
+.sequence-slots { left: 390px; right: 48px; bottom: 260px; }
+.card-tray { left: 390px; right: 430px; bottom: 48px; }
+.seq-title { top: 140px; }
+
+/* ---- 8 Better rule: chips tray sits above the builder so the bottom stays free for the CTA ---- */
+.builder-panel { left: 490px; top: 640px; width: 1320px; }
+.chip-tray { left: 490px; top: 400px; bottom: auto; width: 1000px; }
+.chip-tray .tray { justify-content: center; }
+.chip-tray .chip { width: 280px; font-size: 17px; letter-spacing: .3px; }
+.builder-panel .slot .chip { font-size: 18px; gap: 6px; }
+.builder-note { top: 150px; }
+
+/* ---- 9 Challenge: rule strip bottom-right under the progress bar (wraps to two lines); predictions on the right half ---- */
+.rule-strip { left: auto; right: 48px; bottom: 40px; top: auto; max-width: 620px; flex-wrap: wrap; row-gap: 8px; gap: 8px; padding: 12px 14px; justify-content: center; }
+.rule-strip .mini-chip { font-size: 16px; padding: 7px 10px; }
+.machine-call { left: 1390px; top: 450px; }
+.predict-wrap { left: 960px; right: 64px; bottom: 210px; gap: 16px; }
+.predict-wrap .row { gap: 20px; }
+.predict-wrap .btn-call { min-width: 230px; min-height: 92px; font-size: 26px; }
+.verdict { left: 960px; right: 64px; top: 720px; }
+
+/* ---- 10 Transfer: shared tray between the hoops, panels below, CTA bottom-centre ---- */
+.hoop-setup.left, .hoop-setup.right { top: 540px; }
+.transfer-call { top: 501px; }
+.transfer-tray { left: 560px; top: 150px; bottom: auto; width: 800px; height: auto; flex-wrap: wrap; justify-content: center; padding: 12px 18px; gap: 10px; }
+.transfer-tray .chip { font-size: 17px; padding: 0 12px; height: 62px; }
+.transfer-tray .sensor-item { width: 96px; height: 96px; }
+
+/* ---- 1 Title ---- */
+.title-start { min-height: 108px; font-size: 32px; }

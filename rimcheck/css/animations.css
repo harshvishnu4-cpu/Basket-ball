@@ -1,0 +1,30 @@
+@keyframes loadSpin { 0%, 100% { transform: rotate(-8deg) scale(1); } 50% { transform: rotate(8deg) scale(1.06); } }
+@keyframes hintPulse { 0%, 100% { box-shadow: var(--shadow-ui), 0 0 0 0 rgba(246,195,60,.55); } 50% { box-shadow: var(--shadow-ui), 0 0 0 18px rgba(246,195,60,0); } }
+@keyframes sparkPop { 0% { opacity: 0; transform: scale(.4); } 40% { opacity: 1; transform: scale(1.15); } 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes zonePulse { 0% { box-shadow: 0 0 0 0 rgba(58,168,160,.6); } 100% { box-shadow: 0 0 0 26px rgba(58,168,160,0); } }
+@keyframes nudgeX { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
+@keyframes popIn { 0% { opacity: 0; transform: translateY(24px) scale(.92); } 100% { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes riseIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+@keyframes lockGlow { 0% { box-shadow: 0 0 0 0 var(--c-success-glow); } 100% { box-shadow: 0 0 0 22px rgba(56,178,122,0); } }
+@keyframes softPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes callPulse { 0%, 100% { box-shadow: 0 0 0 0 var(--c-amber-glow); } 50% { box-shadow: 0 0 0 16px rgba(240,165,42,0); } }
+@keyframes badgeIn { 0% { opacity: 0; transform: scale(.5) rotate(-12deg); } 60% { opacity: 1; transform: scale(1.08) rotate(3deg); } 100% { transform: none; } }
+@keyframes glowSpin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes hintSpin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes stripePulse { 0%, 100% { background: rgba(255,255,255,.55); } 50% { background: rgba(255,255,255,.95); } }
+@keyframes stripeFlash { 0% { box-shadow: 0 0 0 0 #fff; } 100% { box-shadow: 0 0 24px 6px rgba(255,255,255,0); } }
+
+.anim-pop { animation: popIn 380ms var(--ease-pop) both; }
+/* the centred CTA keeps its translateX while popping */
+#cta-wrap.anim-pop { animation: ctaPop 380ms var(--ease-pop) both; }
+@keyframes ctaPop { 0% { opacity: 0; transform: translateX(-50%) translateY(24px) scale(.92); } 100% { opacity: 1; transform: translateX(-50%); } }
+.anim-rise { animation: riseIn 420ms var(--ease-out) both; }
+.anim-fade { animation: fadeIn 300ms both; }
+.nudge { animation: nudgeX 320ms ease-in-out; }
+.lock-glow { animation: lockGlow 700ms var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
+}

@@ -1,0 +1,20 @@
+{
+  "source": "ElevenLabs text-to-sound-effects (mp3_44100_128), generated 2026-09-25",
+  "usage": "RC.audio.sfx(name) plays sfx_<name>.mp3; volumes in CLIP_GAIN (js/audio.js); synth fallback if a clip fails to load",
+  "clips": {
+    "rimhit":   { "seconds": 0.8, "prompt": "Basketball hitting the metal rim of a hoop, sharp metallic clang with a short ring, indoor gym" },
+    "bounce":   { "seconds": 0.5, "prompt": "Single basketball bounce on a hardwood gym floor, punchy rubber thud with a little gym echo" },
+    "swish":    { "seconds": 0.8, "prompt": "Basketball swishing cleanly through a nylon net, soft quick swish" },
+    "whoosh":   { "seconds": 0.6, "prompt": "Quick soft whoosh of a basketball being thrown through the air" },
+    "murmur":   { "seconds": 2.0, "prompt": "Small group of kids gasping and murmuring in surprise in an indoor gym, short crowd reaction, no clear words" },
+    "cheer":    { "seconds": 2.0, "prompt": "Small group of children cheering and clapping briefly in a school gym" },
+    "press":    { "seconds": 0.5, "prompt": "Soft playful UI button click pop for a kids game, short and clean" },
+    "hover":    { "seconds": 0.5, "prompt": "Very soft subtle tiny UI tick for hovering over a target, quiet" },
+    "lock":     { "seconds": 0.8, "prompt": "Satisfying plastic snap click of a small device locking into a wall mount, followed by a soft electronic confirm beep" },
+    "scan":     { "seconds": 1.2, "prompt": "Friendly electronic sensor scanning sweep with rising digital beeps, cute sci-fi gadget for a kids game" },
+    "correct":  { "seconds": 1.0, "prompt": "Cheerful bright correct-answer chime for a kids game, three quick ascending bell notes" },
+    "needsFix": { "seconds": 0.8, "prompt": "Gentle soft try-again sound for a kids game, two descending mellow boop notes, not harsh or scary" },
+    "progress": { "seconds": 0.6, "prompt": "Short sparkly ding notification for a kids game, a question popping up" },
+    "complete": { "seconds": 2.5, "prompt": "Triumphant short victory fanfare jingle with sparkles for a kids educational game, mission complete" }
+  }
+}

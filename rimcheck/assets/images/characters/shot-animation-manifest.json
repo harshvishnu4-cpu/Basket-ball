@@ -1,0 +1,18 @@
+{
+  "character": "RimCheck girl player",
+  "usage": "Frame swap at basketball release; ball remains an independent canvas sprite.",
+  "frames": [
+    {
+      "id": "ready",
+      "file": "player_girl_ready-v2.png",
+      "description": "Three-quarter-right stance holding the ball before release."
+    },
+    {
+      "id": "release",
+      "file": "player_girl_release-v2.png",
+      "description": "Matching full-body follow-through without a ball."
+    }
+  ],
+  "source": "Generated with the built-in image generation tool from the four supplied screen references.",
+  "prompt_summary": "Warm polished 3D children's illustration, navy and golden-yellow uniform, full-body transparent sprite, consistent pose-swap proportions, no text or scenery."
+}

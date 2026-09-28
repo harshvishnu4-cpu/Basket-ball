@@ -1,0 +1,11 @@
+{
+  "screen": 4,
+  "reference": "Fourth screen.png",
+  "canvas": { "width": 1920, "height": 1080 },
+  "layers": [
+    { "key": "bg_fourth", "file": "../backgrounds/bg_fourth_screen_clean-v2.png", "role": "clean gym and basketball hoop background", "generated": true },
+    { "key": "coach_riya_thinking_reference", "file": "../characters/coach_riya_thinking-reference-v2.png", "role": "independent coach foreground", "placement": { "left": -55, "top": 194, "height": 900 } },
+    { "key": "sensor_fourth", "file": "sensor_compact.png", "role": "compact draggable sensor (420x330, cropped from the supplied transparent art); mounts centred on the drop marks" },
+    { "role": "HTML/CSS interaction layers", "items": ["Backboard target", "Far support target", "Beside net target", "instruction tray", "drag arrow"] }
+  ]
+}

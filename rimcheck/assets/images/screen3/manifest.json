@@ -1,0 +1,16 @@
+{
+  "screen": 3,
+  "background": "../backgrounds/bg_third_screen_clean-v2.png",
+  "layers": [
+    { "id": "coach", "file": "../characters/coach_riya_third-idle-v2.png", "placement": { "left": -58, "top": 307, "height": 720 } },
+    { "id": "shooter", "file": "../characters/player_girl_release-v2.png", "placement": { "left": 420, "top": 392, "height": 570 } },
+    { "id": "navy_teammate", "file": "../characters/player_teammate_cheer-v2.png", "placement": { "left": 690, "top": 468, "height": 500 } },
+    { "id": "white_reaction_pair", "file": "../characters/players_react_no-pair-v2.png", "placement": { "left": 1310, "top": 520, "height": 430 } },
+    { "id": "basketball", "file": "../props/ball_basketball.png", "placement": { "left": 1452, "top": 163, "size": 104 } }
+  ],
+  "code_layers": ["It went in speech bubble", "No way speech bubble", "rim impact marks", "full-screen continue control"],
+  "generation": {
+    "tool": "built-in image generation",
+    "prompt_summary": "Remove the people, bubbles and ball from the supplied court to form a clean background; generate transparent coach, navy teammate and two-player white reaction group matching the reference style and poses."
+  }
+}

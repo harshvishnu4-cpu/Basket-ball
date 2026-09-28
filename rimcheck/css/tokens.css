@@ -1,0 +1,52 @@
+:root {
+  /* Palette from the generated world: cream, school blue, golden yellow, teal, maple, orange */
+  --c-cream: #f6ecd6;
+  --c-cream-deep: #e9d8b4;
+  --c-blue: #2f6fd0;
+  --c-blue-deep: #1f4fa3;
+  --c-blue-dark: #163a78;
+  --c-navy: #0f2a55;
+  --c-yellow: #f6c33c;
+  --c-yellow-deep: #d99a12;
+  --c-teal: #3aa8a0;
+  --c-teal-deep: #257d78;
+  --c-orange: #ef7a2a;
+  --c-maple: #e2b371;
+  --c-white: #ffffff;
+  --c-ink: #17233a;
+  --c-ink-soft: #4a5570;
+  --c-success: #38b27a;
+  --c-success-glow: rgba(56, 178, 122, .45);
+  --c-amber: #f0a52a;
+  --c-amber-glow: rgba(240, 165, 42, .5);
+  --c-danger: #d95b4a;
+
+  /* SKAI mission shell (Figma "SKAI final" / Main) */
+  --skai-orange: #fca01b;
+  --skai-orange-2: #fdae35;
+  --skai-navy: #071848;
+  --skai-navy-2: #1a3c8d;
+  --skai-blue-1: #154777;
+  --skai-blue-2: #2784dd;
+  --skai-gear-blue: #154879;
+  --skai-card-grad: linear-gradient(133deg, #1a3c8d 5%, #071848 97%);
+  --skai-button-grad: linear-gradient(-65deg, #154777 3%, #2784dd 132%);
+  --skai-radius-card: 30px;
+  --skai-radius-button: 19px;
+
+  --font-display: "GameDisplay", "Fredoka One", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif; /* Figma pairing 25-4: Fredoka One */
+  --font-ui: "GameUI", "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif; /* Figma pairing 25-4: Poppins 400 / 600 / 700 */
+
+  --radius-button: 22px;
+  --radius-panel: 28px;
+  --radius-chip: 18px;
+  --shadow-ui: 0 12px 28px rgba(0, 0, 0, .18);
+  --shadow-soft: 0 6px 16px rgba(15, 42, 85, .16);
+  --shadow-press: 0 3px 8px rgba(0, 0, 0, .2);
+  --transition-fast: 180ms;
+  --transition-med: 320ms;
+  --ease-pop: cubic-bezier(.2, 1.4, .4, 1);
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+
+  --topbar-h: 124px;
+}

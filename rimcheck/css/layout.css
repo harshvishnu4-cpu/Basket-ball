@@ -1,0 +1,133 @@
+#viewport {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: #0c1a33;
+  overflow: hidden;
+}
+.game-shell {
+  position: absolute; left: 0; top: 0;
+  width: 1920px; height: 1080px;
+  transform-origin: top left;
+  overflow: hidden;
+  font-family: var(--font-ui);
+  color: var(--c-ink);
+  user-select: none; -webkit-user-select: none;
+  touch-action: none;
+  background: #0c1a33;
+}
+.game-shell > * { position: absolute; }
+#bg-layer { inset: 0; z-index: 0; background-size: cover; background-position: center; transform-origin: 78% 26%;
+  transition: opacity var(--transition-med) var(--ease-out), transform 700ms var(--ease-out); }
+#bg-layer.push { transform: scale(1.08); }
+#scene-canvas { left: 0; top: 0; width: 1920px; height: 1080px; z-index: 1; pointer-events: none; }
+#screen-root { inset: 0; z-index: 3; }
+#ui-layer { inset: 0; z-index: 5; pointer-events: none; }
+#ui-layer > * { position: absolute; pointer-events: auto; }
+#transition-veil { inset: 0; z-index: 9; background: #0c1a33; opacity: 0; pointer-events: none; transition: opacity 260ms var(--ease-out); }
+#transition-veil.on { opacity: 1; pointer-events: auto; }
+
+/* ---------- Loading ---------- */
+#loading { inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+  background: radial-gradient(circle at 50% 40%, #1a3c8d, #071848 70%); color: var(--c-cream); transition: opacity 400ms; }
+#loading.off { opacity: 0; pointer-events: none; }
+#loading img { width: 120px; height: 120px; animation: loadSpin 2.4s ease-in-out infinite; }
+#loading .bar { width: 320px; height: 14px; border-radius: 999px; background: rgba(255,255,255,.18); overflow: hidden; }
+#loading .bar > i { display: block; height: 100%; width: 0%; background: var(--skai-orange); border-radius: 999px; transition: width 200ms; }
+
+/* ---------- SKAI gear buttons ---------- */
+.gear-btn { position: absolute; width: 93px; height: 93px; padding: 0; border: 0; background: none; cursor: pointer; pointer-events: auto;
+  transition: transform var(--transition-fast) var(--ease-out), filter var(--transition-fast); }
+.gear-btn img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.gear-btn:hover:not(:disabled) { transform: translateY(-3px) scale(1.04) rotate(8deg); }
+.gear-btn:active:not(:disabled) { transform: scale(.96) rotate(-4deg); }
+.gear-btn:focus-visible { outline: 5px solid var(--skai-orange); outline-offset: 4px; border-radius: 50%; }
+.gear-btn:disabled { filter: grayscale(.6) brightness(.8); opacity: .6; cursor: default; }
+.gear-btn.back { left: -1px; top: 1px; width: 124px; height: 124px; }
+.gear-btn.small { position: relative; width: 93px; height: 93px; }
+.gear-btn .ico { inset: auto; position: absolute; left: 50%; top: 50%; width: 42%; height: 42%; transform: translate(-50%, -50%); }
+#btn-mute.off::after { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 46px; background: #d13735; border-radius: 4px;
+  transform: translate(-50%, -50%) rotate(45deg); box-shadow: 0 0 0 3px #fff; }
+
+/* ---------- Top bar ---------- */
+#topbar { left: 0; top: 0; width: 1920px; height: var(--topbar-h); z-index: 6; pointer-events: none; }
+#topbar[hidden] { display: none; }
+#topbar .bar-left { position: absolute; left: 0; top: 0; width: 320px; height: 124px; }
+#topbar .logo-tag { position: absolute; left: 0; top: 0; width: 246px; height: 65px; }
+#topbar .logo-tag .tag { position: absolute; left: 0; top: 0; width: 246px; height: 65px; }
+#topbar .logo-tag .mark { position: absolute; left: 120px; top: 24px; width: 58px; height: 17px; } /* mark-only variant: the "Space" word is stripped per FLOW.md */
+#section-label {
+  position: absolute; left: 50%; top: 22px; transform: translateX(-50%);
+  font-family: var(--font-display); font-weight: 700; font-size: 34px; letter-spacing: .6px; color: var(--c-white);
+  padding: 12px 40px 10px; border-radius: 22px;
+  background: var(--skai-card-grad); box-shadow: inset 0 5px 0 0 var(--skai-orange-2), var(--shadow-soft);
+  pointer-events: none; white-space: nowrap;
+}
+#section-label:empty { display: none; }
+#topbar .bar-right { position: absolute; right: 30px; top: 19px; display: flex; align-items: flex-start; gap: 13px; pointer-events: none; }
+#topbar .bar-right > * { pointer-events: auto; }
+.timer-sign { position: relative; width: 184px; height: 112px; margin-top: -19px; margin-left: 8px; pointer-events: none; }
+.timer-sign img { position: absolute; inset: 0; width: 184px; height: 112px; }
+.timer-sign span { position: absolute; left: 0; right: 0; top: 46px; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 41px; color: #fff; letter-spacing: 1px; line-height: 1; }
+.timer-sign[hidden] { display: none; }
+
+/* ---------- SKAI progress bar ---------- */
+#progress { left: 1790px; top: 256px; width: 130px; height: 569px; z-index: 6; }
+#progress[hidden] { display: none; }
+#progress .frame { position: absolute; left: 0; top: 0; width: 89px; height: 569px; }
+#progress .bracket { position: absolute; left: 88px; width: 41px; height: 22px; background: #d9d9d9; }
+#progress .bracket.top { top: 54px; } #progress .bracket.bottom { top: 491px; }
+#progress .label { position: absolute; left: 0; width: 89px; top: 10px; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 35px; color: #fff; line-height: 1.2; }
+#progress .stripes { position: absolute; left: 29px; top: 65px; width: 32px; height: 489px; display: flex; flex-direction: column-reverse; gap: 6px; padding: 8px 0; overflow: hidden; }
+#progress .stripe { flex: 1; background: rgba(255,255,255,.28); transform: skewY(-38deg); transition: background var(--transition-med), box-shadow var(--transition-med); }
+#progress .stripe.complete { background: #fff; }
+#progress .stripe.active { background: rgba(255,255,255,.75); animation: stripePulse 1.6s ease-in-out infinite; }
+#progress .stripe.complete.just { animation: stripeFlash 700ms var(--ease-out); }
+
+/* ---------- Fixed CTA (SKAI bolted plate) ---------- */
+/* Figma Main: Rectangle 158 at x 753 / y 901 of 1959×1102 → bottom-centre */
+#cta-wrap { left: 50%; transform: translateX(-50%); bottom: 60px; z-index: 6; }
+#cta-wrap[hidden] { display: none; }
+
+/* ---------- Hint gear ---------- */
+#hint-btn {
+  left: 43px; bottom: 22px; width: 124px; height: 124px; z-index: 6; padding: 0; border: 0; background: none; /* Figma Group 2597 at 43 / 956 */
+  opacity: 0; transform: scale(.6); pointer-events: none;
+  transition: opacity var(--transition-med), transform var(--transition-med) var(--ease-pop);
+}
+#hint-btn img { width: 124px; height: 124px; display: block; }
+#hint-btn.on { opacity: 1; transform: scale(1); pointer-events: auto; animation: hintSpin 6s linear infinite; }
+#hint-btn:focus-visible { outline: 5px solid var(--skai-orange); outline-offset: 3px; border-radius: 50%; }
+
+/* ---------- Info overlay (SKAI panel) ---------- */
+#info-overlay { inset: 0; z-index: 8; background: rgba(0,0,0,.55); display: flex; align-items: center; justify-content: center; }
+#info-overlay[hidden] { display: none; }
+.info-panel { position: relative; width: 1434px; height: 860px; animation: popIn 320ms var(--ease-pop) both; }
+.info-panel .plate { position: absolute; inset: 0; width: 1434px; height: 860px; }
+.info-panel .info-body { position: absolute; left: 160px; right: 160px; top: 140px; bottom: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; text-align: center; color: #fff; }
+.info-panel h2 { font-family: var(--font-display); font-size: 52px; font-weight: 700; color: var(--skai-orange-2); letter-spacing: 1px; }
+.info-panel p { font-size: 40px; font-weight: 600; line-height: 1.35; max-width: 1000px; }
+.info-panel .gear-btn.close { left: auto; right: -70px; top: -60px; width: 176px; height: 176px; }
+.info-panel .gear-btn.close .ico { width: 34%; height: 34%; }
+
+/* ---------- Coach Riya + speech ---------- */
+#coach { left: 40px; bottom: 30px; width: 460px; height: 560px; z-index: 2; pointer-events: none;
+  transform-origin: bottom center; transition: opacity var(--transition-med), transform 600ms var(--ease-out), left 600ms var(--ease-out), bottom 600ms var(--ease-out), height 600ms var(--ease-out), width 600ms var(--ease-out); }
+#coach[hidden] { display: none; }
+#coach img { position: absolute; left: 0; bottom: 0; height: 100%; width: auto; opacity: 0; transition: opacity 220ms; }
+#coach img.on { opacity: 1; }
+#coach-name { position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%);
+  background: var(--skai-card-grad); color: var(--c-cream); font-family: var(--font-display); font-weight: 700; font-size: 26px; letter-spacing: 1px;
+  padding: 8px 26px 6px; border-radius: 16px; box-shadow: inset 0 4px 0 0 var(--skai-orange-2), var(--shadow-soft); opacity: 0; transition: opacity var(--transition-med); }
+#coach-name.on { opacity: 1; }
+#speech {
+  position: absolute; z-index: 5; max-width: 640px; min-width: 260px;
+  padding: 20px 28px; border-radius: 26px; background: var(--c-white); color: var(--c-ink);
+  font-size: 30px; line-height: 1.32; font-weight: 600; box-shadow: var(--shadow-ui);
+  opacity: 0; transform: translateY(10px) scale(.96); transition: opacity var(--transition-med), transform var(--transition-med) var(--ease-pop);
+  pointer-events: none;
+}
+#speech.on { opacity: 1; transform: none; }
+#speech::after { content: ""; position: absolute; width: 28px; height: 28px; background: var(--c-white); bottom: -12px; left: 44px;
+  transform: rotate(45deg); border-radius: 4px; }
+#speech.tail-right::after { left: auto; right: 44px; }
+#speech.tail-none::after { display: none; }
