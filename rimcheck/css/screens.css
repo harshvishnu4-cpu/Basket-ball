@@ -247,7 +247,7 @@
   background: radial-gradient(circle at 50% 30%, #ffe08a, var(--c-yellow) 60%, #e9ae22); border: 8px solid var(--c-white); box-shadow: var(--shadow-ui), 0 0 0 10px rgba(246,195,60,.35);
   font-family: var(--font-display); font-weight: 800; font-size: 46px; color: var(--c-navy); letter-spacing: .5px; animation: badgeIn 900ms var(--ease-pop) both; position: relative; }
 .badge small { font-family: var(--font-ui); font-size: 22px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; opacity: .8; }
-.badge .glow { position: absolute; left: 50%; top: 50%; width: 700px; height: 700px; margin: -350px 0 0 -350px; background: url("../assets/images/fx/fx_completion_glow.png") center/contain no-repeat; z-index: -1; opacity: .8; animation: glowSpin 24s linear infinite; }
+.badge .glow { position: absolute; left: 50%; top: 50%; width: 700px; height: 700px; margin: -350px 0 0 -350px; z-index: -1; opacity: .8; animation: glowSpin 24s linear infinite; }
 .recap { display: flex; align-items: center; gap: 26px; }
 .recap-item { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 250px; padding: 20px 10px; border-radius: 26px; background: rgba(255,255,255,.9); box-shadow: var(--shadow-soft); opacity: 0; transform: translateY(20px); transition: opacity 500ms, transform 500ms var(--ease-pop); }
 .recap-item.on { opacity: 1; transform: none; }

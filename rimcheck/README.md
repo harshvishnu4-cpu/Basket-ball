@@ -16,24 +16,23 @@ Press **F11** for full screen. The 1920×1080 stage scales to any window with le
 ```
 something/
 ├─ FLOW.md · BUILD.md · ASSETS.md      specs (copies also live inside rimcheck/)
-├─ source-art/                         raw inputs, not shipped
-│  ├─ png/                             generated 1200–2000px PNG art (+ prompts.json, gallery.html)
-│  ├─ figma-ui/                        Main.svg / Main-1.svg exports of the SKAI shell frames
-│  └─ rimcheck_modern_png_assets.zip
+├─ vercel.json                        serves rimcheck/ at the site root on Vercel
 └─ rimcheck/                           the game (ship this folder)
    ├─ index.html                       shell markup + script order
    ├─ css/                             tokens · layout (SKAI chrome) · components · screens · animations
    ├─ js/                              engine: state, router, scene (canvas), shots, rules, input, audio, narration, hint, progress, ui
-   │  └─ screens/                      one module per screen (mount / unmount)
+   │  └─ screens/                      title · intro · dispute · sensorPlacement (screens 1-4, mount / unmount)
    ├─ data/                            narration.js (all copy) · shots.js (paths, hoop geometry, sensor spots) · voice_manifest.js
    ├─ assets/images/
-   │  ├─ backgrounds/ characters/ props/ fx/ paths/   optimised game art (JPEG backgrounds, PNG sprites)
+   │  ├─ backgrounds/ characters/ props/ screen2-4/   game art used by screens 1-4 (unused art was removed)
    │  └─ ui/skai/                      SKAI shell components exported from Figma as SVG (see below)
+   ├─ assets/audio/sfx/                ElevenLabs sound effects (see manifest.json)
    ├─ assets/audio/voice/              drop recorded narration here (optional)
    ├─ assets/fonts/                    Fredoka One + Poppins (latin WOFF2, bundled)
-   ├─ tools/optimize-assets.ps1        regenerates assets/images from ../source-art/png
    ├─ tools/strip-svg-bg.js            cleans freshly exported Figma SVGs (removes frame backgrounds / empty clipPaths)
-   ├─ tools/e2e.js                     headless Chrome playthrough test
+   ├─ tools/e2e-four.js                headless Chrome test of screens 1-4
+   ├─ tools/playwright-preview.js      watchable (headed) Playwright walkthrough
+   ├─ dev-menu/                        testing-only page jumper (delete with its two index.html tags)
    └─ serve.js · Play.bat              offline launcher
 ```
 
@@ -58,17 +57,17 @@ Colours live in `css/tokens.css` (`--skai-*`). To refresh a component, export th
 
 ## Guide character
 
-The guide is **Coach Riya** (`assets/images/characters/coach_riya_*.png`: idle, hello, curious, thinking, celebrate, point). FLOW.md still describes the original robot guide "Milo"; the game replaced him and all Milo art was removed. `RC.ui.coach.pose(name)` switches between the `<img data-pose>` entries in `index.html`; an unknown pose falls back to the first image. She stands still (no idle animation) so the scene does not feel synthetic.
+The guide is **Coach Riya**. Screens 3 and 4 place her directly as scene art (`coach_riya_third-idle-v2.png`, `coach_riya_thinking-reference-v2.png`). The floating coach overlay in `index.html` (`#coach`, driven by `RC.ui.coach`) is now empty: its pose images were only used by the removed screens 5-11. FLOW.md still describes the original robot guide "Milo"; the game replaced him.
 
 ## Sensor device
 
-One box-style sensor with eight authored views in `assets/images/props/sensor_*.png` (520px, alpha). `data/shots.js` gives each mount a centre, an anchor on court hardware (`mountX/Y`) and the view that faces the court (`sensorView`); the bracket plate and arm are drawn on the canvas by `SensorMount` in `js/scene.js`. The old clamp-camera sensor and its interim versions were removed; `tools/optimize-assets.ps1` no longer generates sensor art.
+Screen 4 uses one compact sensor, `assets/images/screen4/sensor_compact.png` (420×330, alpha). It sits in the tray and mounts centred on whichever of the three drop marks it is dragged to (`SPOTS` in `js/screens/sensorPlacement.js`).
 
 Stylesheet roles: `layout.css` = the shell chrome above, `components.css` = cards, chips, slots, buttons, `screens.css` = base per-screen layout, `refinements.css` = per-screen position overrides that keep every tray clear of the bottom-centre CTA and the right-hand progress bar. Change positions in `refinements.css`; do not restyle the shell there.
 
 ## Audio
 
-* **SFX and BGM are synthesised** with Web Audio at runtime, so nothing needs downloading. BGM starts on the first tap, ducks under narration.
+* **SFX** play the ElevenLabs clips in `assets/audio/sfx/`; if a clip can't load, a Web Audio synth version plays instead. **BGM** is synthesised at runtime, starts on the first tap and ducks under narration.
 * **Narration** uses recorded files when present, otherwise the browser's offline speech synthesis, with Riya's speech bubble as the visible fallback.
   Put files in `assets/audio/voice/` and list them in `data/voice_manifest.js`; wording lives in `data/narration.js`.
 * The Info gear opens a panel with the current section and the last narration line, plus "Hear it again".
